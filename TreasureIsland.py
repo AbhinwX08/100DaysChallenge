@@ -1,21 +1,21 @@
 print("Welcome to the game of treasure island!!!")
-path= input("Which path would you like to take to reach the island? (e.g: left or right): ")
+path= input("Which path would you like to take to reach the island? (e.g: left or right): ").lower()
 
-if path=="RIGHT" or path=="right" or path=="Right":
+if path=="right":
     print("You have taken a wrong turn and fell into the Bermuda Triangle")
 else:
     print("You successfully escaped the Right route threat....")
 
-    choice= input("Would you like to swim or take a boat to reach the the treasure island!!")
+    choice= input("Would you like to swim or take a boat to reach the the treasure island!!").lower()
 
-    if choice=="SWIM" or choice=="Swim" or choice=="swim":
+    if choice=="swim":
         print("You ran out of energy!!!! Game lost")
     else:
         print("You have reached your destination your precious treasure island...")
 
-    gate= input("There are 3 doors out of which only 1 leads to reach your treasury which door will you like to enter from? (RED/GREEN/BROWN): ")
+    gate= input("There are 3 doors out of which only 1 leads to reach your treasury which door will you like to enter from? (RED/GREEN/BROWN): ").lower()
 
-    if gate== "RED" or gate== "Red" or gate== "red":
+    if gate== "red":
         print("Hurryyyyyy!!! You reached to your treasure enjoy your wealth owned by a hardwork of yours!!")
     else:
         print("You entered the wrong gate filled up with lot of snakes...\n BETTER LUCK FOR NEXT TIME!!!")
