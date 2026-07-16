@@ -24,24 +24,24 @@ K~T~T~T~T~T~T~T~T~T~T~T~T~T
         
         ''')
 
-print("Welcome to THE SECRET AUCTION!!")
+print("Welcome to game of 'THE SECRET AUCTION!!'")
 print(gavel)
 
-auctioneer= {}
+bids= {}
 game_continue= True
 
 while game_continue:
-    Name= input("Enter your name: ")
-    Price= int(input("Enter the price: $"))
+    bidder_name= input("Enter your name: ")
+    bid_price= int(input("Enter your bid: $"))
 
-    auctioneer[Name]=Price
+    bids[bidder_name]= bid_price
 
-    game= input("Enter 'y' for yes to continue the game or 'n' for no to leave the game ").lower()
+    more_bidders = input("Enter 'y' for yes to continue the game or 'n' for no to leave the game ").lower()
 
-    if game=='n':
+    if more_bidders=='n':
         game_continue=False
 
-    elif game=='y':
+    elif more_bidders =='y':
         print('\n'*100)
 
     else:
@@ -49,9 +49,9 @@ while game_continue:
 
 highest_bid = 0
 winner = ""
-  
-for bidder in auctioneer:
-    bid_amount = auctioneer[bidder]
+
+for bidder in bids:
+    bid_amount = bids[bidder]
     
     if bid_amount > highest_bid:
         highest_bid = bid_amount
