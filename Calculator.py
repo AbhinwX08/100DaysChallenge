@@ -16,10 +16,10 @@ _______________________
              
 ''')
 
-def addition(n1,n2):
-    return n1+n2
+def Addition(n1,n2):
+    return n1+n2                   
 
-def substract(n1,n2):
+def Substract(n1,n2):
     return n1-n2
 
 def Multiply(n1,n2):
@@ -28,33 +28,29 @@ def Multiply(n1,n2):
 def Divide (n1,n2):
     return n1/n2
 
-dictionary= {}
+dictionary= {
+    1: Addition,
+    2: Substract,
+    3: Multiply, 
+    4: Divide
+}
+
 calc_work= True
 
 while calc_work:
 
     n1= float(input("Enter your first number: "))
-    operation= int(input("Enter the number for the operation you wanted to do: \n1. Addition\n2. Substraction\n3. Multiply\n4. Divide\n"))
+    print("1. Addition\n2. Substraction\n3. Multiply\n4. Divide\n")
+    operation_choice= int(input("Enter the choice for the operation you wanted to do: "))
     n2= float(input("Enter your second number: "))
     
-    if operation==1:
-        dictionary['+']= addition(n1,n2)
-        print(dictionary['+'])
+    if operation_choice in dictionary:
+        calc_function= dictionary[operation_choice]
+        answer= calc_function(n1,n2)
 
-    elif operation==2:
-        dictionary['-']= substract(n1,n2)
-        print(dictionary['-'])
-
-    elif operation==3:
-        dictionary['*']= Multiply(n1,n2)
-        print(dictionary['*'])
-
-    elif operation==4:
-        dictionary['/']= Divide(n1,n2)
-        print(dictionary['/'])
-
+        print(f"The answer is= {answer}")
     else:
-        print("Enter valid choice!!")
+        print("Enter valid input")
 
     choice= input("Enter 'y' for yes to continue or 'n' for no to discontinue the operations: ")
     if choice=="n":
