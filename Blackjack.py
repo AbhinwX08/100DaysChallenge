@@ -31,10 +31,7 @@ while game_decision:
     print(f"Your cards= {My_cards}, Your score= {score_me}")
     print(f"Dealer cards= {Dealer_cards[0]}")
 
-    if score_me==21:
-        print("You win!!!")
-        game_decision=False
-    elif score_me>21:
+    if score_me>21:
         print("You went over 21, You bust and lose!!")
         game_decision=False
     else:
@@ -50,7 +47,7 @@ if score_me<=21:
 
     score_dealer= sum(Dealer_cards)
 
-    print(f"You final card= {My_cards}, final score= {score_me}")
+    print(f"Your final card= {My_cards}, final score= {score_me}")
     print(f"Dealer final card= {Dealer_cards}, final score= {score_dealer}")
         
     if score_dealer>21:
