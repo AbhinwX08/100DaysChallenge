@@ -30,6 +30,8 @@ def game_control(guesses):
             guesses-=1
             if guessed_number>number_chosen:
                 print(f"You guessed incorrectly and remaining chances of guessing is {guesses}")
+                print("Guessed number is too high than actual number")
+                
             elif guessed_number<number_chosen:
                 print(f"You guessed incorrectly and remaining chances of guessing is {guesses}")
                 print("Guessed number is too low than actual number")
