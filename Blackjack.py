@@ -22,26 +22,28 @@ for i in range(2):
     My_cards.append(random.choice(possible_cards))
     Dealer_cards.append(random.choice(possible_cards))
 
-def inner_cond():
-    game_decision= True
-    while game_decision:
-        if score_me==score_dealer:
-            print("It's a draw!!")
-        elif score_me<17 and score_dealer<17:
-            print("Choose one more card to decide the winner!!")
-            My_cards[2]= random.choice(possible_cards)
-            Dealer_cards[2]= random.choice(possible_cards)
-            if score_me>=21:
-                print("Your score exceeded 21..\nYOU LOST!!!")
-            elif score_me==21 and score_dealer==21:
-                print("It's Draw!!")
-            elif score_dealer>21:
-                print("Dealer score exceeded 21..\nDEALER LOST!!!")
+game_decision= True
+
+while game_decision:
+    score_me= sum(My_cards)
+    score_dealer= sum(Dealer_cards)
+    
+    print(f"Your cards= {My_cards}, Your score= {score_me}")
+    print(f"Dealer cards= {Dealer_cards[0]}")
+
+    if score_me==21:
+        print("You win!!!")
+        game_decision=False
+    elif score_me>21:
+        print("You went over 21, You bust and lose!!")
+        game_decision=False
+    else:
+        pass_card= input("Type 'y' for yes to take another card and 'n' for no: ")
+        if pass_card=='y':
+            My_cards.append(random.choice(possible_cards))
         else:
             game_decision=False
 
-score_me=0
-score_dealer=0
 
 for i in My_cards:
     score_me+=My_cards[i]
