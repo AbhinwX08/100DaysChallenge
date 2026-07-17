@@ -1,4 +1,4 @@
-calculator= (r''' 
+calculator_art= (r''' 
 _______________________
 |  _________________  |
 | | AU           0. | |
@@ -35,33 +35,35 @@ dictionary= {
     4: Divide
 }
 
-calc_work= True
+def calculator():      
+    calc_work= True
+    num1= float(input("Enter your first number: "))
 
-while calc_work:
+    while calc_work:
 
-    n1= float(input("Enter your first number: "))
-    print("1. Addition\n2. Substraction\n3. Multiply\n4. Divide\n")
-    operation_choice= int(input("Enter the choice for the operation you wanted to do: "))
-    n2= float(input("Enter your second number: "))
-    
-    if operation_choice in dictionary:
-        calc_function= dictionary[operation_choice]
-        answer= calc_function(n1,n2)
+        print("1. Addition\n2. Substraction\n3. Multiply\n4. Divide\n")
+        operation_choice= int(input("Pick an operation : "))
+        num2= float(input("Enter your second number: "))
+        
+        if operation_choice in dictionary:
+            calc_function= dictionary[operation_choice]
+            answer= calc_function(num1,num2)
+            print(f"The answer is= {answer}")
 
-        print(f"The answer is= {answer}")
-    else:
-        print("Enter valid input")
+        else:
+            print("Enter valid input")
+            continue
 
-    choice= input("Enter 'y' for yes to continue or 'n' for no to discontinue the operations: ")
-    if choice=="n":
-        calc_work= False
-        print("Operations over, Bye!!")
+        choice= input(f"Enter 'y' for yes to continue with exisitng result {answer} or 'n' for no to start for the new calculation ").lower()
+        
+        if choice=='y':
+            num1==answer
+        elif choice=='n':
+            calc_function=False
+            print("\n"*20)
+            calculator()
+        else:
+            print("Enter valid input!!")
+            continue
 
-    elif choice=='y':
-        pass
-
-    else:
-        print("Enter valid entry...")
-    
-
-print(dictionary)
+calculator()
