@@ -18,14 +18,14 @@ def game():
 def game_control(guesses):
         
     game_continue= True
+    print(f"You have total {guesses} guesses to identify the number")
 
     while game_continue and guesses>0:
-
-        print(f"You have total {guesses} guesses to identify the number")
         guessed_number= int(input("Enter your number: "))
 
         if guessed_number== number_chosen:
             print(f"You guessed correctly and won the game!!")
+
         elif guessed_number!=number_chosen:
             guesses-=1
             if guessed_number>number_chosen:
@@ -33,6 +33,7 @@ def game_control(guesses):
             elif guessed_number<number_chosen:
                 print(f"You guessed incorrectly and remaining chances of guessing is {guesses}")
                 print("Guessed number is too low than actual number")
+                
         else:
             print("Enter the valid input")
             game_continue= False
