@@ -14,7 +14,13 @@ print(logo)
 print("Welcome to the Casino, Let's play 'BlackJack!!'")
 
 possible_cards= [2,3,4,5,6,7,8,9,10,10,10,10,11]
-print(f"The available cards are: {possible_cards}")
+
+My_cards= []
+Dealer_cards=[]
+
+for i in range(2):
+    My_cards.append(random.choice(possible_cards))
+    Dealer_cards.append(random.choice(possible_cards))
 
 def inner_cond():
     game_decision= True
@@ -33,16 +39,6 @@ def inner_cond():
                 print("Dealer score exceeded 21..\nDEALER LOST!!!")
         else:
             game_decision=False
-
-
-My_cards= []
-My_cards[0]= random.choice(possible_cards)
-
-Dealer_cards=[]
-Dealer_cards[0]= random.choice(possible_cards)
-
-My_turn= int(input(f"My next card is: {random.choice(possible_cards)}"))
-My_cards.append(My_turn)
 
 score_me=0
 score_dealer=0
