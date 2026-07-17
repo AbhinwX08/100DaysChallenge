@@ -33,7 +33,7 @@ def game_control(guesses):
             elif guessed_number<number_chosen:
                 print(f"You guessed incorrectly and remaining chances of guessing is {guesses}")
                 print("Guessed number is too low than actual number")
-                
+
         else:
             print("Enter the valid input")
             game_continue= False
@@ -44,5 +44,6 @@ def game_control(guesses):
         game()
     else:
         print("Thanks for playing")
+        print(f"Number is: {number_chosen}")
 
 game()
