@@ -44,10 +44,6 @@ while game_decision:
         else:
             game_decision=False
 
-
-for i in My_cards:
-    score_me+=My_cards[i]
-
 if score_me>=21:
     print("Your score exceeded 21..\nYOU LOST!!!")
 else:
