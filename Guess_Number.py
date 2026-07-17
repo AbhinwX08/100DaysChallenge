@@ -37,12 +37,11 @@ def game_control(guesses):
             print("Enter the valid input")
             game_continue= False
 
-        choice= input("To continue the game enter 'y' for yes and 'n' for no: ")
-        if choice=='n':
-            game_continue=False
-        elif choice=='y':
-            game_continue=True
-        else:
-            print("Enter valid input")
+    choice= input("To continue the game enter 'y' for yes and 'n' for no: ")
+
+    if choice=='y':
+        game()
+    else:
+        print("Thanks for playing")
 
 game()
