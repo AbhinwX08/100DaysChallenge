@@ -44,29 +44,22 @@ while game_decision:
         else:
             game_decision=False
 
-if score_me>=21:
-    print("Your score exceeded 21..\nYOU LOST!!!")
-else:
-    if score_me==21 or score_me<21:
-        print("Ideal condition..\nWait for dealer to play it's move")
+if score_me<=21:
+    while sum(Dealer_cards)<17:
+        Dealer_cards.append(random.choice(possible_cards))
 
-        Dealer_turn= int(input(f"My next card is: {random.choice(possible_cards)}"))
-        My_cards.append(Dealer_turn)
+    score_dealer= sum(Dealer_cards)
 
-        for j in Dealer_cards:
-            score_dealer+=Dealer_cards[j]
+    print(f"You final card= {My_cards}, final score= {score_me}")
+    print(f"Dealer final card= {Dealer_cards}, final score= {score_dealer}")
         
-        if score_dealer>21:
-            print("DEALER LOST!!!\nDealer score exceeded 21..")
-        elif score_dealer==21:
-            print("It's Draw between You and Dealer..")
-        elif score_dealer<21:
-            inner_cond()
-
-        elif score_me>score_dealer:
-            print("You won!!")
-
-        elif score_me<score_dealer:
-            print("Dealer won!!")
+    if score_dealer>21:
+        print("Dealer score exceeded 21..\nDealer lost!!")
+    elif score_dealer==score_me:
+        print("It's Draw between You and Dealer..")
+    elif score_me>score_dealer:
+        print("You have higher score, You win!!")
+    elif score_me<score_dealer:
+        print("Dealer have higher score, You lose!!")
 
 
