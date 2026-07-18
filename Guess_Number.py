@@ -2,7 +2,8 @@ import random
 
 print("Welcome to the 'GUESS THE NUMBER' game")
 
-number_chosen= random.randint(1,101)
+number_chosen= random.randint(1,100)
+print("Think of a number between 1 and 100")
 
 def game():
     difficulty= input("Choose the difficulty (e.g: 'Easy/Hard'): ").lower()
@@ -25,16 +26,17 @@ def game_control(guesses):
 
         if guessed_number== number_chosen:
             print(f"You guessed correctly and won the game!!")
+            game_continue= False
 
         elif guessed_number!=number_chosen:
             guesses-=1
             if guessed_number>number_chosen:
                 print(f"You guessed incorrectly and remaining chances of guessing is {guesses}")
-                print("Guessed number is too high than actual number")
+                print("Guessed number is too high than actual number\n")
                 
             elif guessed_number<number_chosen:
                 print(f"You guessed incorrectly and remaining chances of guessing is {guesses}")
-                print("Guessed number is too low than actual number")
+                print("Guessed number is too low than actual number\n")
 
         else:
             print("Enter the valid input")
@@ -43,9 +45,10 @@ def game_control(guesses):
     choice= input("To continue the game enter 'y' for yes and 'n' for no: ")
 
     if choice=='y':
+        print(f"The actual number is: {number_chosen}")
         game()
     else:
         print("Thanks for playing")
-        print(f"Number is: {number_chosen}")
+        print(f"The actual number is: {number_chosen}")
 
 game()
