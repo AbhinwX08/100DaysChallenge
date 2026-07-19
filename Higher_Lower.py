@@ -3,7 +3,7 @@ import HL_Data
 
 print(HL_Data.logo_1)
 
-print("Welcome to the game of Higher and Lower game!!")
+print("Welcome to the Higher and Lower game!!")
 
 def game():
     score= 0
