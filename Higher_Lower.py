@@ -8,50 +8,41 @@ print("Welcome to the game of Higher and Lower game!!")
 def game():
     score= 0
     game_continue=True
-    
+
+    comp_A= random.choice(HL_Data.data_of_personalities)
+
     while game_continue:
-        comp_A= random.choice(HL_Data.data_of_personalities)
-        print(comp_A)
+        comp_B= random.choice(HL_Data.data_of_personalities)
+
+        while comp_A==comp_B:
+            comp_B= random.choice(HL_Data.data_of_personalities)
+            
+        print(f"Compare A: {comp_A['Name']}, age {comp_A['age']}, from {comp_A['country']}.")
 
         print(HL_Data.logo_2)
 
-        comp_B= random.choice(HL_Data.data_of_personalities)
-        print(comp_B)
+        print(f"Compare B: {comp_B['Name']}, age {comp_B['age']}, from {comp_B['country']}.")
 
-        comparison= input(f"Which personality {comp_A[0]} or {comp_B[0]} have more followers? (A or B): ").lower()
+        comparison= input(f"Which personality {comp_A['Name']} or {comp_B['Name']} have more followers? (A or B): ").lower()
 
-        if comp_A==comp_B:
-            continue
+        A_followers= comp_A['followers_millions']
+        B_followers= comp_B['followers_millions']
 
-        elif comparison=='a':
-            if comp_A[3]>comp_B[3]:
-                print(f"You are right!!\nPersonality {comp_A[0]} have more followers than personlaity {comp_B[0]}!!")
-                score+=1
-                print(f"Your Current score is: {score}")
-        
-            elif comp_B[3]>comp_A[3]:
-                print(f"You are Wrong!!\nPersonality {comp_B[0]} have more followers than personlaity {comp_A[0]}!!")
-                print(f"Your Current score is: {score}")
-
-        elif comparison=='b':
-            if comp_A[3]>comp_B[3]:
-                print(f"You are right!!\nPersonality {comp_A[0]} have more followers than personlaity {comp_B[0]}!!")
-                score+=1
-                print(f"Your Current score is: {score}")
-        
-            elif comp_B[3]>comp_A[3]:
-                print(f"You are Wrong!!\nPersonality {comp_B[0]} have more followers than personlaity {comp_A[0]}!!")
-                print(f"Your Current score is: {score}")
-                
+        if A_followers>B_followers:
+            correct_answer= 'a'
         else:
-            print("Enter valid input!!")
+            correct_answer='b'
+            
+        if comparison== correct_answer:
+            score+=1
+            print(f"You are right that {comp_A['Name']} has {comp_A['followers_millions']} followers than {comp_B['Name']} has {comp_B['followers_millions']} followers ")
+            print(f"Your current score: {score}")
 
-        Again= input("Do you want to play again?\nEnter 'y' for yes and 'n' for no: ").title()
-        if Again=='N':
+            comp_A=comp_B
+
+        else:
+            print(f"Sorry!! You are wrong that {comp_A['Name']} has {comp_A['followers_millions']} followers AND {comp_B['Name']} has {comp_B['followers_millions']} followers ")
+            print(f"Your current score: {score}")
             game_continue=False
-        elif Again=='Y':
-            game_continue=True
-        else:
-            print("Enter valid input")
 
 game()
