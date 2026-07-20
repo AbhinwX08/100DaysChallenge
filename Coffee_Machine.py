@@ -1,5 +1,16 @@
 import Coffee_data
 
+def Check_ingredients(index):
+    return Coffee_data.Machine['Milk'] >= Coffee_data.Coffee_ingredients[index]['Milk'] and Coffee_data.Machine['Coffee'] >= Coffee_data.Coffee_ingredients[index]['Coffee'] and Coffee_data.Machine['Water'] >= Coffee_data.Coffee_ingredients[index]['Water']
+
+def process_coins():
+    print("Use only coins to get your coffee!!")
+    coins_10 = int(input("₹10 coin: "))
+    coins_20 = int(input("₹20 coin: "))
+    coins_50 = int(input("₹50 coin: "))
+    return coins_10*10 + coins_20*20 + coins_50*50
+
+
 print(Coffee_data.logo)
 print("\nWelcome to the world of making coffee!!")
 
@@ -22,17 +33,12 @@ while Coffee_continue:
         print(f"Coffee type: {key} and its Price (in ₹): {Coffee_data.Types[key]}\n")
 
     choice= int(input("Your coffee number (in 1/2/3 number): "))
-    print("Use only coins to get your coffee!!")
-        
-    coins_10= int(input("₹10 coin: "))
-    coins_20= int(input("₹20 coin: "))
-    coins_50= int(input("₹50 coin: "))
-    price_of_coffee= coins_10*10 + coins_20*20 + coins_50*50
 
     if choice==1:
-        condition= Coffee_data.Machine['Milk']>=Coffee_data.Coffee_ingredients[0]['Milk'] and Coffee_data.Machine['Coffee']>=Coffee_data.Coffee_ingredients[0]['Coffee'] and Coffee_data.Machine['Water']>=Coffee_data.Coffee_ingredients[0]['Water']
+        condition= Check_ingredients(0)
         if condition:
             print(f"Your choosen coffee is: Espresso\nPay (₹):{Coffee_data.Types['Espresso']}")
+            price_of_coffee= process_coins()
             if price_of_coffee>=Coffee_data.Types['Espresso']:
                 print("Enjoy the sip of your coffee!!")
                 Coffee_data.Machine['Milk']-=0
@@ -44,10 +50,13 @@ while Coffee_continue:
             print("There is shortage of ingredients in the machine so cant make coffee right now!!\nSorry for the inconvenience")
 
     elif choice==2:
-        condition= Coffee_data.Machine['Milk']>=Coffee_data.Coffee_ingredients[1]['Milk'] and Coffee_data.Machine['Coffee']>=Coffee_data.Coffee_ingredients[1]['Coffee'] and Coffee_data.Machine['Water']>=Coffee_data.Coffee_ingredients[1]['Water']
+        condition= Check_ingredients(1)
         if condition:
             print(f"Your choosen coffee is: Latte\nPay (₹):{Coffee_data.Types['Latte']}")
-            if price_of_coffee>=Coffee_data.Types['Latte']:
+
+            price_of_coffee = process_coins()
+            
+            if price_of_coffee >= Coffee_data.Types['Latte']:
                 print("Enjoy the sip of your coffee!!")
                 Coffee_data.Machine['Milk']-=240
                 Coffee_data.Machine['Water']-=60
@@ -58,10 +67,13 @@ while Coffee_continue:
             print("There is shortage of ingredients in the machine so cant make coffee right now!!\nSorry for the inconvenience")
     
     elif choice==3:
-        condition= Coffee_data.Machine['Milk']>=Coffee_data.Coffee_ingredients[2]['Milk'] and Coffee_data.Machine['Coffee']>=Coffee_data.Coffee_ingredients[2]['Coffee'] and Coffee_data.Machine['Water']>=Coffee_data.Coffee_ingredients[2]['Water']
+        condition= Check_ingredients(2)
         if condition:
             print(f"Your choosen coffee is: Cappuccino\nPay (₹):{Coffee_data.Types['Cappuccino']}")
-            if price_of_coffee>=Coffee_data.Types['Cappuccino']:
+            
+            price_of_coffee = process_coins()
+            
+            if price_of_coffee >= Coffee_data.Types['Cappuccino']:
                 print("Enjoy the sip of your coffee!!")
                 Coffee_data.Machine['Milk']-=120
                 Coffee_data.Machine['Water']-=60
