@@ -9,7 +9,7 @@ class QuizBrain:
         return self.q_no< len(self.q_list)
 
     def next_question(self):
-        current_question= self.q_list(self.q_no)
+        current_question= self.q_list[self.q_no]
         self.q_no+=1
         user_answer= input(f"Q.{self.q_no}: {current_question.text} (True/False)")
         self.check_answer(user_answer, current_question.answer)
